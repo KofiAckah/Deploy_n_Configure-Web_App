@@ -1,1 +1,6 @@
 Assignment.pdf
+*.pem
+
+*.tfstate
+*.tfstate.backup
+.terraform/
