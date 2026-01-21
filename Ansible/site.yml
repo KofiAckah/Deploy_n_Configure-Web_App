@@ -1,0 +1,283 @@
+---
+- name: Deploy Node.js Todo App with MongoDB and Nginx
+  hosts: webservers
+  become: yes
+  
+  vars:
+    app_name: "todoapp"
+    app_dir: "/var/www/{{ app_name }}"
+    github_repo: "https://github.com/KofiAckah/Deploy_n_Configure-Web_App.git"
+    node_version: "20"
+    app_port: 3000
+    mongodb_port: 27017
+
+  tasks:
+    # ============================================
+    # SYSTEM SETUP
+    # ============================================
+    - name: Display deployment information
+      debug:
+        msg: |
+          Deploying Todo App to {{ ansible_host }}
+          Repository: {{ github_repo }}
+          App Directory: {{ app_dir }}
+
+    - name: Update system packages
+      yum:
+        name: '*'
+        state: latest
+        update_cache: yes
+
+    # ============================================
+    # INSTALL MONGODB
+    # ============================================
+    - name: Add MongoDB repository
+      copy:
+        dest: /etc/yum.repos.d/mongodb-org-7.0.repo
+        content: |
+          [mongodb-org-7.0]
+          name=MongoDB Repository
+          baseurl=https://repo.mongodb.org/yum/amazon/2023/mongodb-org/7.0/x86_64/
+          gpgcheck=1
+          enabled=1
+          gpgkey=https://www.mongodb.org/static/pgp/server-7.0.asc
+
+    - name: Install MongoDB
+      yum:
+        name: mongodb-org
+        state: present
+
+    - name: Start and enable MongoDB service
+      service:
+        name: mongod
+        state: started
+        enabled: yes
+
+    - name: Wait for MongoDB to be ready
+      wait_for:
+        port: "{{ mongodb_port }}"
+        delay: 5
+        timeout: 30
+
+    # ============================================
+    # INSTALL NODE.JS
+    # ============================================
+    - name: Install Node.js repository (NodeSource)
+      shell: |
+        curl -fsSL https://rpm.nodesource.com/setup_{{ node_version }}.x | bash -
+      args:
+        creates: /etc/yum.repos.d/nodesource-el.repo
+
+    - name: Install Node.js and npm
+      yum:
+        name:
+          - nodejs
+        state: present
+
+    - name: Verify Node.js installation
+      command: node --version
+      register: node_version_output
+      changed_when: false
+
+    - name: Display Node.js version
+      debug:
+        msg: "Node.js version: {{ node_version_output.stdout }}"
+
+    # ============================================
+    # INSTALL GIT
+    # ============================================
+    - name: Install Git
+      yum:
+        name: git
+        state: present
+
+    # ============================================
+    # CLONE APPLICATION
+    # ============================================
+    - name: Create application directory
+      file:
+        path: "{{ app_dir }}"
+        state: directory
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: '0755'
+
+    - name: Clone application from GitHub
+      git:
+        repo: "{{ github_repo }}"
+        dest: "{{ app_dir }}"
+        version: main
+        force: yes
+      become_user: "{{ ansible_user }}"
+
+    - name: Navigate to webapp folder
+      shell: ls -la {{ app_dir }}/webapp
+      register: webapp_contents
+      changed_when: false
+
+    - name: Display webapp contents
+      debug:
+        msg: "{{ webapp_contents.stdout_lines }}"
+
+    # ============================================
+    # INSTALL NPM DEPENDENCIES
+    # ============================================
+    - name: Install npm dependencies
+      npm:
+        path: "{{ app_dir }}/webapp"
+        state: present
+      become_user: "{{ ansible_user }}"
+
+    - name: Create .env file for production
+      copy:
+        dest: "{{ app_dir }}/webapp/.env"
+        content: |
+          PORT={{ app_port }}
+          MONGODB_URI=mongodb://localhost:{{ mongodb_port }}/todoapp
+          NODE_ENV=production
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: '0644'
+
+    # ============================================
+    # CREATE SYSTEMD SERVICE
+    # ============================================
+    - name: Create systemd service file for Node.js app
+      copy:
+        dest: /etc/systemd/system/{{ app_name }}.service
+        content: |
+          [Unit]
+          Description=Todo App Node.js Application
+          After=network.target mongod.service
+          Requires=mongod.service
+
+          [Service]
+          Type=simple
+          User={{ ansible_user }}
+          WorkingDirectory={{ app_dir }}/webapp
+          ExecStart=/usr/bin/node server.js
+          Restart=always
+          RestartSec=10
+          StandardOutput=journal
+          StandardError=journal
+          SyslogIdentifier={{ app_name }}
+          Environment=NODE_ENV=production
+          Environment=PORT={{ app_port }}
+
+          [Install]
+          WantedBy=multi-user.target
+        mode: '0644'
+
+    - name: Reload systemd daemon
+      systemd:
+        daemon_reload: yes
+
+    - name: Start and enable Todo App service
+      service:
+        name: "{{ app_name }}"
+        state: started
+        enabled: yes
+
+    - name: Wait for Node.js app to start
+      wait_for:
+        port: "{{ app_port }}"
+        delay: 3
+        timeout: 30
+
+    # ============================================
+    # CONFIGURE NGINX AS REVERSE PROXY
+    # ============================================
+    - name: Install Nginx
+      yum:
+        name: nginx
+        state: present
+
+    - name: Configure Nginx as reverse proxy
+      copy:
+        dest: /etc/nginx/conf.d/{{ app_name }}.conf
+        content: |
+          server {
+              listen 80;
+              server_name {{ ansible_default_ipv4.address }} {{ ansible_hostname }};
+
+              location / {
+                  proxy_pass http://localhost:{{ app_port }};
+                  proxy_http_version 1.1;
+                  proxy_set_header Upgrade $http_upgrade;
+                  proxy_set_header Connection 'upgrade';
+                  proxy_set_header Host $host;
+                  proxy_set_header X-Real-IP $remote_addr;
+                  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                  proxy_set_header X-Forwarded-Proto $scheme;
+                  proxy_cache_bypass $http_upgrade;
+              }
+
+              location /health {
+                  proxy_pass http://localhost:{{ app_port }}/health;
+                  access_log off;
+              }
+          }
+        mode: '0644'
+      notify: Restart Nginx
+
+    - name: Remove default Nginx configuration
+      file:
+        path: /usr/share/nginx/html/index.html
+        state: absent
+
+    - name: Test Nginx configuration
+      command: nginx -t
+      register: nginx_test
+      changed_when: false
+
+    - name: Display Nginx test results
+      debug:
+        msg: "{{ nginx_test.stderr_lines }}"
+
+    - name: Start and enable Nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    # ============================================
+    # VERIFICATION
+    # ============================================
+    - name: Check if Todo App is responding
+      uri:
+        url: "http://localhost:{{ app_port }}/health"
+        return_content: yes
+      register: app_health
+      retries: 3
+      delay: 5
+
+    - name: Display application health status
+      debug:
+        msg: "Application Status: {{ app_health.json.status | default('Unknown') }}"
+
+    - name: Display deployment summary
+      debug:
+        msg: |
+          ✅ DEPLOYMENT SUCCESSFUL!
+          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          📦 Application: Todo App
+          🌐 Access URL: http://{{ ansible_default_ipv4.address }}
+          🔗 Health Check: http://{{ ansible_default_ipv4.address }}/health
+          📁 App Directory: {{ app_dir }}/webapp
+          🗄️  Database: MongoDB running on port {{ mongodb_port }}
+          🚀 Node.js App: Running on port {{ app_port }}
+          🔄 Nginx: Reverse proxy configured
+          📊 Service: systemctl status {{ app_name }}
+          📋 Logs: journalctl -u {{ app_name }} -f
+
+  handlers:
+    - name: Restart Nginx
+      service:
+        name: nginx
+        state: restarted
+
+    - name: Restart Todo App
+      service:
+        name: "{{ app_name }}"
+        state: restarted
+
