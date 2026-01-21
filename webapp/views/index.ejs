@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Todo App</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1><i class="fas fa-tasks"></i> Simple Todo App</h1>
+            <p class="subtitle">Powered by Node.js, Express & MongoDB</p>
+        </header>
+
+        <!-- Statistics -->
+        <div class="stats">
+            <div class="stat-card">
+                <i class="fas fa-list"></i>
+                <div>
+                    <h3><%= stats.total %></h3>
+                    <p>Total Tasks</p>
+                </div>
+            </div>
+            <div class="stat-card completed">
+                <i class="fas fa-check-circle"></i>
+                <div>
+                    <h3><%= stats.completed %></h3>
+                    <p>Completed</p>
+                </div>
+            </div>
+            <div class="stat-card pending">
+                <i class="fas fa-clock"></i>
+                <div>
+                    <h3><%= stats.pending %></h3>
+                    <p>Pending</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Todo Form -->
+        <div class="add-todo-section">
+            <h2><i class="fas fa-plus-circle"></i> Add New Task</h2>
+            <form action="/todos" method="POST" class="add-todo-form">
+                <div class="form-group">
+                    <input 
+                        type="text" 
+                        name="title" 
+                        placeholder="What needs to be done?" 
+                        required 
+                        class="input-field"
+                    >
+                </div>
+                <div class="form-group">
+                    <textarea 
+                        name="description" 
+                        placeholder="Add description (optional)" 
+                        rows="2"
+                        class="input-field"
+                    ></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="priority">Priority:</label>
+                        <select name="priority" id="priority" class="input-field">
+                            <option value="low">🟢 Low</option>
+                            <option value="medium" selected>🟡 Medium</option>
+                            <option value="high">🔴 High</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Add Task
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Todos List -->
+        <div class="todos-section">
+            <h2><i class="fas fa-list-ul"></i> Your Tasks</h2>
+            
+            <% if (todos.length === 0) { %>
+                <div class="empty-state">
+                    <i class="fas fa-clipboard-list"></i>
+                    <p>No tasks yet. Add one above to get started!</p>
+                </div>
+            <% } else { %>
+                <div class="todos-list">
+                    <% todos.forEach(todo => { %>
+                        <div class="todo-item <%= todo.completed ? 'completed' : '' %> priority-<%= todo.priority %>">
+                            <div class="todo-header">
+                                <form action="/todos/<%= todo._id %>/toggle?_method=PUT" method="POST" class="toggle-form">
+                                    <input 
+                                        type="checkbox" 
+                                        class="todo-checkbox" 
+                                        <%= todo.completed ? 'checked' : '' %>
+                                        onchange="this.form.submit()"
+                                    >
+                                </form>
+                                <div class="todo-content">
+                                    <h3 class="todo-title"><%= todo.title %></h3>
+                                    <% if (todo.description) { %>
+                                        <p class="todo-description"><%= todo.description %></p>
+                                    <% } %>
+                                    <div class="todo-meta">
+                                        <span class="priority-badge priority-<%= todo.priority %>">
+                                            <%= todo.priority.toUpperCase() %>
+                                        </span>
+                                        <span class="todo-date">
+                                            <i class="far fa-calendar"></i>
+                                            <%= new Date(todo.createdAt).toLocaleDateString() %>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="todo-actions">
+                                <button class="btn-icon btn-edit" onclick="editTodo('<%= todo._id %>')">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <form action="/todos/<%= todo._id %>?_method=DELETE" method="POST" class="delete-form">
+                                    <button type="submit" class="btn-icon btn-delete" onclick="return confirm('Delete this task?')">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+            <% } %>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Built with <i class="fas fa-heart"></i> using Node.js, Express & MongoDB</p>
+            <p class="tech-stack">
+                <span><i class="fab fa-node-js"></i> Node.js</span>
+                <span><i class="fas fa-server"></i> Express</span>
+                <span><i class="fas fa-database"></i> MongoDB</span>
+            </p>
+        </footer>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
