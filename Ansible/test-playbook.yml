@@ -1,0 +1,25 @@
+---
+- name: Test Connection to Web Server
+  hosts: webservers
+  gather_facts: yes
+  
+  tasks:
+    - name: Ping the server
+      ping:
+      
+    - name: Display server information
+      debug:
+        msg: |
+          Hostname: {{ ansible_hostname }}
+          OS: {{ ansible_distribution }} {{ ansible_distribution_version }}
+          IP Address: {{ ansible_default_ipv4.address }}
+          
+    - name: Check if Nginx is installed
+      command: rpm -q nginx
+      register: nginx_check
+      failed_when: false
+      changed_when: false
+      
+    - name: Display Nginx status
+      debug:
+        msg: "Nginx is {{ 'installed' if nginx_check.rc == 0 else 'not installed' }}"

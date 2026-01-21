@@ -1,0 +1,81 @@
+2026-01-20 13:53:45,104 p=507640 u=joel-livingstone-kofi-ackah n=ansible WARNING| [WARNING]: Deprecation warnings can be disabled by setting `deprecation_warnings=False` in ansible.cfg.
+
+2026-01-20 13:53:45,104 p=507640 u=joel-livingstone-kofi-ackah n=ansible INFO| [DEPRECATION WARNING]: community.general.yaml has been deprecated. The plugin has been superseded by the option `result_format=yaml` in callback plugin ansible.builtin.default from ansible-core 2.13 onwards. This feature will be removed from collection 'community.general' version 12.0.0.
+
+2026-01-20 13:53:45,184 p=507640 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY [Ansible Ad-Hoc] ****************************************************************************************************************************************************
+2026-01-20 13:53:45,196 p=507640 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [ping] **************************************************************************************************************************************************************
+2026-01-20 13:53:51,128 p=507640 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp]
+2026-01-20 13:53:51,131 p=507640 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY RECAP ***************************************************************************************************************************************************************
+2026-01-20 13:53:51,131 p=507640 u=joel-livingstone-kofi-ackah n=ansible INFO| webapp                     : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-01-20 14:16:50,491 p=517284 u=joel-livingstone-kofi-ackah n=ansible WARNING| [WARNING]: Deprecation warnings can be disabled by setting `deprecation_warnings=False` in ansible.cfg.
+
+2026-01-20 14:16:50,491 p=517284 u=joel-livingstone-kofi-ackah n=ansible INFO| [DEPRECATION WARNING]: community.general.yaml has been deprecated. The plugin has been superseded by the option `result_format=yaml` in callback plugin ansible.builtin.default from ansible-core 2.13 onwards. This feature will be removed from collection 'community.general' version 12.0.0.
+
+2026-01-20 14:16:50,549 p=517284 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY [Ansible Ad-Hoc] ****************************************************************************************************************************************************
+2026-01-20 14:16:50,558 p=517284 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [ping] **************************************************************************************************************************************************************
+2026-01-20 14:16:56,450 p=517284 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp]
+2026-01-20 14:16:56,451 p=517284 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY RECAP ***************************************************************************************************************************************************************
+2026-01-20 14:16:56,451 p=517284 u=joel-livingstone-kofi-ackah n=ansible INFO| webapp                     : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-01-20 14:22:50,477 p=519952 u=joel-livingstone-kofi-ackah n=ansible INFO| webapp | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+2026-01-21 10:25:33,338 p=676073 u=joel-livingstone-kofi-ackah n=ansible INFO| webapp | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+2026-01-21 10:25:36,500 p=676224 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY [Test Connection to Web Server] *************************************************************************************************************************************
+2026-01-21 10:25:36,507 p=676224 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Gathering Facts] ***************************************************************************************************************************************************
+2026-01-21 10:25:42,474 p=676224 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp]
+2026-01-21 10:25:42,480 p=676224 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Ping the server] ***************************************************************************************************************************************************
+2026-01-21 10:25:46,763 p=676224 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp]
+2026-01-21 10:25:46,785 p=676224 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Display server information] ****************************************************************************************************************************************
+2026-01-21 10:25:46,816 p=676224 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp] => {
+    "msg": "Hostname: ip-10-0-1-210\nOS: Amazon 2023\nIP Address: 10.0.1.210\n"
+}
+2026-01-21 10:25:46,821 p=676224 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Check if Nginx is installed] ***************************************************************************************************************************************
+2026-01-21 10:25:50,746 p=676224 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp]
+2026-01-21 10:25:50,762 p=676224 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Display Nginx status] **********************************************************************************************************************************************
+2026-01-21 10:25:50,792 p=676224 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp] => {
+    "msg": "Nginx is not installed"
+}
+2026-01-21 10:25:50,793 p=676224 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY RECAP ***************************************************************************************************************************************************************
+2026-01-21 10:25:50,793 p=676224 u=joel-livingstone-kofi-ackah n=ansible INFO| webapp                     : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-01-21 10:26:09,412 p=676643 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY [Test Connection to Web Server] *************************************************************************************************************************************
+2026-01-21 10:26:09,418 p=676643 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Gathering Facts] ***************************************************************************************************************************************************
+2026-01-21 10:26:14,221 p=676643 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp]
+2026-01-21 10:26:14,226 p=676643 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Ping the server] ***************************************************************************************************************************************************
+2026-01-21 10:26:17,878 p=676643 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp]
+2026-01-21 10:26:17,894 p=676643 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Display server information] ****************************************************************************************************************************************
+2026-01-21 10:26:17,925 p=676643 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp] => {
+    "msg": "Hostname: ip-10-0-1-210\nOS: Amazon 2023\nIP Address: 10.0.1.210\n"
+}
+2026-01-21 10:26:17,928 p=676643 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Check if Nginx is installed] ***************************************************************************************************************************************
+2026-01-21 10:26:21,675 p=676643 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp]
+2026-01-21 10:26:21,683 p=676643 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Display Nginx status] **********************************************************************************************************************************************
+2026-01-21 10:26:21,705 p=676643 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp] => {
+    "msg": "Nginx is not installed"
+}
+2026-01-21 10:26:21,706 p=676643 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY RECAP ***************************************************************************************************************************************************************
+2026-01-21 10:26:21,707 p=676643 u=joel-livingstone-kofi-ackah n=ansible INFO| webapp                     : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-01-21 10:42:19,846 p=682898 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY [Install and Start Nginx] *******************************************************************************************************************************************
+2026-01-21 10:42:19,852 p=682898 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Gathering Facts] ***************************************************************************************************************************************************
+2026-01-21 10:42:26,922 p=682898 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp]
+2026-01-21 10:42:26,928 p=682898 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Display target host information] ***********************************************************************************************************************************
+2026-01-21 10:42:26,952 p=682898 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp] => {
+    "msg": "Starting Nginx setup on 3.254.177.169"
+}
+2026-01-21 10:42:26,970 p=682898 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Ensure Nginx is installed] *****************************************************************************************************************************************
+2026-01-21 10:42:45,018 p=682898 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-21 10:42:45,033 p=682898 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Debug Nginx installation status] ***********************************************************************************************************************************
+2026-01-21 10:42:45,059 p=682898 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp] => {
+    "nginx_install_result.changed": true
+}
+2026-01-21 10:42:45,062 p=682898 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Create simple welcome page] ****************************************************************************************************************************************
+2026-01-21 10:42:55,333 p=682898 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-21 10:42:55,360 p=682898 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Start Nginx service] ***********************************************************************************************************************************************
+2026-01-21 10:43:00,456 p=682898 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-21 10:43:00,476 p=682898 u=joel-livingstone-kofi-ackah n=ansible INFO| RUNNING HANDLER [Restart Nginx] ******************************************************************************************************************************************
+2026-01-21 10:43:05,614 p=682898 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-21 10:43:05,615 p=682898 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY RECAP ***************************************************************************************************************************************************************
+2026-01-21 10:43:05,615 p=682898 u=joel-livingstone-kofi-ackah n=ansible INFO| webapp                     : ok=7    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

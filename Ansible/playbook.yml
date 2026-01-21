@@ -1,0 +1,48 @@
+---
+- name: Install and Start Nginx
+  hosts: webservers
+  become: yes
+
+  tasks:
+    - name: Display target host information
+      debug:
+        msg: "Starting Nginx setup on {{ ansible_host }}"
+
+    - name: Ensure Nginx is installed
+      yum:
+        name: nginx
+        state: present
+      register: nginx_install_result
+
+    - name: Debug Nginx installation status
+      debug:
+        var: nginx_install_result.changed
+
+    - name: Create simple welcome page
+      copy:
+        dest: /usr/share/nginx/html/index.html
+        content: |
+          <!DOCTYPE html>
+          <html>
+          <head>
+              <title>Welcome</title>
+          </head>
+          <body>
+              <h1>Nginx is Running!</h1>
+              <p>Ready for your web application</p>
+          </body>
+          </html>
+        mode: '0644'
+
+    - name: Start Nginx service
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+      notify: Restart Nginx
+
+  handlers:
+    - name: Restart Nginx
+      service:
+        name: nginx
+        state: restarted
