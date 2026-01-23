@@ -12,9 +12,7 @@
     mongodb_port: 27017
 
   tasks:
-    # ============================================
     # SYSTEM SETUP
-    # ============================================
     - name: Display deployment information
       debug:
         msg: |
@@ -28,9 +26,7 @@
         state: latest
         update_cache: yes
 
-    # ============================================
     # INSTALL MONGODB
-    # ============================================
     - name: Add MongoDB repository
       copy:
         dest: /etc/yum.repos.d/mongodb-org-7.0.repo
@@ -59,9 +55,7 @@
         delay: 5
         timeout: 30
 
-    # ============================================
     # INSTALL NODE.JS
-    # ============================================
     - name: Install Node.js repository (NodeSource)
       shell: |
         curl -fsSL https://rpm.nodesource.com/setup_{{ node_version }}.x | bash -
@@ -83,17 +77,13 @@
       debug:
         msg: "Node.js version: {{ node_version_output.stdout }}"
 
-    # ============================================
     # INSTALL GIT
-    # ============================================
     - name: Install Git
       yum:
         name: git
         state: present
 
-    # ============================================
     # CLONE APPLICATION
-    # ============================================
     - name: Create application directory
       file:
         path: "{{ app_dir }}"
@@ -119,9 +109,7 @@
       debug:
         msg: "{{ webapp_contents.stdout_lines }}"
 
-    # ============================================
     # INSTALL NPM DEPENDENCIES
-    # ============================================
     - name: Install npm dependencies
       npm:
         path: "{{ app_dir }}/webapp"
@@ -138,10 +126,9 @@
         owner: "{{ ansible_user }}"
         group: "{{ ansible_user }}"
         mode: '0644'
+        # notify: Restart Todo App
 
-    # ============================================
     # CREATE SYSTEMD SERVICE
-    # ============================================
     - name: Create systemd service file for Node.js app
       copy:
         dest: /etc/systemd/system/{{ app_name }}.service
@@ -167,6 +154,7 @@
           [Install]
           WantedBy=multi-user.target
         mode: '0644'
+        # notify: Restart Todo App
 
     - name: Reload systemd daemon
       systemd:
@@ -184,9 +172,7 @@
         delay: 3
         timeout: 30
 
-    # ============================================
     # CONFIGURE NGINX AS REVERSE PROXY
-    # ============================================
     - name: Install Nginx
       yum:
         name: nginx
@@ -240,9 +226,7 @@
         state: started
         enabled: yes
 
-    # ============================================
     # VERIFICATION
-    # ============================================
     - name: Check if Todo App is responding
       uri:
         url: "http://localhost:{{ app_port }}/health"
@@ -276,8 +260,8 @@
         name: nginx
         state: restarted
 
-    - name: Restart Todo App
-      service:
-        name: "{{ app_name }}"
-        state: restarted
+    # - name: Restart Todo App
+    #   service:
+    #     name: "{{ app_name }}"
+    #     state: restarted
 
