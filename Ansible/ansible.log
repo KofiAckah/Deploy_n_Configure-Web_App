@@ -175,3 +175,120 @@
 2026-01-21 18:00:13,541 p=856550 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
 2026-01-21 18:00:13,544 p=856550 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY RECAP ***************************************************************************************************************************************************************
 2026-01-21 18:00:13,544 p=856550 u=joel-livingstone-kofi-ackah n=ansible INFO| webapp                     : ok=32   changed=15   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-01-23 11:52:32,137 p=1169191 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY [Test Connection to Web Server] ***********************************************************************************************************************************
+2026-01-23 11:52:32,148 p=1169191 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Gathering Facts] *************************************************************************************************************************************************
+2026-01-23 11:52:33,366 p=1169191 u=joel-livingstone-kofi-ackah n=ansible ERROR| [ERROR]: Task failed: Failed to connect to the host via ssh: Warning: Permanently added '52.31.139.173' (ED25519) to the list of known hosts.
+no such identity: Compute/AnsibleKeyPair.pem: No such file or directory
+ec2-user@52.31.139.173: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+
+
+2026-01-23 11:52:33,366 p=1169191 u=joel-livingstone-kofi-ackah n=ansible INFO| fatal: [webapp]: UNREACHABLE! => {"changed": false, "msg": "Task failed: Failed to connect to the host via ssh: Warning: Permanently added '52.31.139.173' (ED25519) to the list of known hosts.\r\nno such identity: Compute/AnsibleKeyPair.pem: No such file or directory\r\nec2-user@52.31.139.173: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).", "unreachable": true}
+2026-01-23 11:52:33,367 p=1169191 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY RECAP *************************************************************************************************************************************************************
+2026-01-23 11:52:33,368 p=1169191 u=joel-livingstone-kofi-ackah n=ansible INFO| webapp                     : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2026-01-23 11:53:43,527 p=1170089 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY [Test Connection to Web Server] ***********************************************************************************************************************************
+2026-01-23 11:53:43,535 p=1170089 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Gathering Facts] *************************************************************************************************************************************************
+2026-01-23 11:53:49,906 p=1170089 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp]
+2026-01-23 11:53:49,922 p=1170089 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Ping the server] *************************************************************************************************************************************************
+2026-01-23 11:53:53,309 p=1170089 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp]
+2026-01-23 11:53:53,336 p=1170089 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Display server information] **************************************************************************************************************************************
+2026-01-23 11:53:53,403 p=1170089 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp] => {
+    "msg": "Hostname: ip-10-0-1-225\nOS: Amazon 2023\nIP Address: 10.0.1.225\n"
+}
+2026-01-23 11:53:53,404 p=1170089 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY RECAP *************************************************************************************************************************************************************
+2026-01-23 11:53:53,404 p=1170089 u=joel-livingstone-kofi-ackah n=ansible INFO| webapp                     : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-01-23 11:54:15,543 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY [Deploy Node.js Todo App with MongoDB and Nginx] ******************************************************************************************************************
+2026-01-23 11:54:15,550 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Gathering Facts] *************************************************************************************************************************************************
+2026-01-23 11:54:20,802 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp]
+2026-01-23 11:54:20,819 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Display deployment information] **********************************************************************************************************************************
+2026-01-23 11:54:20,907 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp] => {
+    "msg": "Deploying Todo App to 52.31.139.173\nRepository: https://github.com/KofiAckah/Deploy_n_Configure-Web_App.git\nApp Directory: /var/www/todoapp\n"
+}
+2026-01-23 11:54:20,923 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Update system packages] ******************************************************************************************************************************************
+2026-01-23 11:54:36,973 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp]
+2026-01-23 11:54:36,998 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Add MongoDB repository] ******************************************************************************************************************************************
+2026-01-23 11:54:45,544 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-23 11:54:45,562 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Install MongoDB] *************************************************************************************************************************************************
+2026-01-23 11:55:08,169 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-23 11:55:08,186 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Start and enable MongoDB service] ********************************************************************************************************************************
+2026-01-23 11:55:12,876 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-23 11:55:12,890 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Wait for MongoDB to be ready] ************************************************************************************************************************************
+2026-01-23 11:55:21,525 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp]
+2026-01-23 11:55:21,543 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Install Node.js repository (NodeSource)] *************************************************************************************************************************
+2026-01-23 11:55:27,329 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-23 11:55:27,346 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Install Node.js and npm] *****************************************************************************************************************************************
+2026-01-23 11:55:40,021 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-23 11:55:40,037 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Verify Node.js installation] *************************************************************************************************************************************
+2026-01-23 11:55:44,608 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp]
+2026-01-23 11:55:44,624 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Display Node.js version] *****************************************************************************************************************************************
+2026-01-23 11:55:44,694 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp] => {
+    "msg": "Node.js version: v20.20.0"
+}
+2026-01-23 11:55:44,702 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Install Git] *****************************************************************************************************************************************************
+2026-01-23 11:55:53,063 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-23 11:55:53,080 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Create application directory] ************************************************************************************************************************************
+2026-01-23 11:55:57,529 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-23 11:55:57,536 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Clone application from GitHub] ***********************************************************************************************************************************
+2026-01-23 11:56:02,359 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-23 11:56:02,366 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Navigate to webapp folder] ***************************************************************************************************************************************
+2026-01-23 11:56:06,663 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp]
+2026-01-23 11:56:06,680 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Display webapp contents] *****************************************************************************************************************************************
+2026-01-23 11:56:06,747 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp] => {
+    "msg": [
+        "total 76",
+        "drwxrwxr-x. 6 ec2-user ec2-user   178 Jan 23 11:56 .",
+        "drwxr-xr-x. 6 ec2-user ec2-user    82 Jan 23 11:56 ..",
+        "-rw-rw-r--. 1 ec2-user ec2-user   140 Jan 23 11:56 .env.example",
+        "-rw-rw-r--. 1 ec2-user ec2-user    35 Jan 23 11:56 .gitignore",
+        "-rw-rw-r--. 1 ec2-user ec2-user  3624 Jan 23 11:56 README.md",
+        "drwxrwxr-x. 2 ec2-user ec2-user    21 Jan 23 11:56 models",
+        "-rw-rw-r--. 1 ec2-user ec2-user 54768 Jan 23 11:56 package-lock.json",
+        "-rw-rw-r--. 1 ec2-user ec2-user   548 Jan 23 11:56 package.json",
+        "drwxrwxr-x. 4 ec2-user ec2-user    27 Jan 23 11:56 public",
+        "drwxrwxr-x. 2 ec2-user ec2-user    22 Jan 23 11:56 routes",
+        "-rw-rw-r--. 1 ec2-user ec2-user  1437 Jan 23 11:56 server.js",
+        "drwxrwxr-x. 2 ec2-user ec2-user    23 Jan 23 11:56 views"
+    ]
+}
+2026-01-23 11:56:06,753 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Install npm dependencies] ****************************************************************************************************************************************
+2026-01-23 11:56:13,731 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-23 11:56:13,750 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Create .env file for production] *********************************************************************************************************************************
+2026-01-23 11:56:22,400 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-23 11:56:22,414 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Create systemd service file for Node.js app] *********************************************************************************************************************
+2026-01-23 11:56:30,940 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-23 11:56:30,959 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Reload systemd daemon] *******************************************************************************************************************************************
+2026-01-23 11:56:35,620 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp]
+2026-01-23 11:56:35,639 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Start and enable Todo App service] *******************************************************************************************************************************
+2026-01-23 11:56:40,357 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-23 11:56:40,368 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Wait for Node.js app to start] ***********************************************************************************************************************************
+2026-01-23 11:56:47,627 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp]
+2026-01-23 11:56:47,642 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Install Nginx] ***************************************************************************************************************************************************
+2026-01-23 11:56:54,076 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-23 11:56:54,085 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Configure Nginx as reverse proxy] ********************************************************************************************************************************
+2026-01-23 11:57:03,196 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-23 11:57:03,211 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Remove default Nginx configuration] ******************************************************************************************************************************
+2026-01-23 11:57:07,364 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-23 11:57:07,383 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Test Nginx configuration] ****************************************************************************************************************************************
+2026-01-23 11:57:11,074 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp]
+2026-01-23 11:57:11,088 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Display Nginx test results] **************************************************************************************************************************************
+2026-01-23 11:57:11,162 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp] => {
+    "msg": [
+        "nginx: the configuration file /etc/nginx/nginx.conf syntax is ok",
+        "nginx: configuration file /etc/nginx/nginx.conf test is successful"
+    ]
+}
+2026-01-23 11:57:11,172 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Start and enable Nginx] ******************************************************************************************************************************************
+2026-01-23 11:57:15,311 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-23 11:57:15,335 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Check if Todo App is responding] *********************************************************************************************************************************
+2026-01-23 11:57:19,163 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp]
+2026-01-23 11:57:19,182 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Display application health status] *******************************************************************************************************************************
+2026-01-23 11:57:19,277 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp] => {
+    "msg": "Application Status: OK"
+}
+2026-01-23 11:57:19,281 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Display deployment summary] **************************************************************************************************************************************
+2026-01-23 11:57:19,306 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp] => {
+    "msg": "✅ DEPLOYMENT SUCCESSFUL!\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n📦 Application: Todo App\n🌐 Access URL: http://10.0.1.225\n🔗 Health Check: http://10.0.1.225/health\n📁 App Directory: /var/www/todoapp/webapp\n🗄️  Database: MongoDB running on port 27017\n🚀 Node.js App: Running on port 3000\n🔄 Nginx: Reverse proxy configured\n📊 Service: systemctl status todoapp\n📋 Logs: journalctl -u todoapp -f\n"
+}
+2026-01-23 11:57:19,317 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| RUNNING HANDLER [Restart Nginx] ****************************************************************************************************************************************
+2026-01-23 11:57:23,472 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-23 11:57:23,476 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY RECAP *************************************************************************************************************************************************************
+2026-01-23 11:57:23,477 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| webapp                     : ok=32   changed=17   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

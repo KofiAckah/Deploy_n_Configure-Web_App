@@ -27,3 +27,14 @@ module "compute" {
   key_name          = var.key_name
   project_name      = var.project_name
 }
+
+# Generate Ansible Inventory File Automatically
+resource "local_file" "ansible_inventory" {
+  content = templatefile("${path.module}/inventory.tpl", {
+    instance_ip         = module.compute.instance_public_ip
+    ansible_user        = "ec2-user"
+    private_key_path    = module.compute.private_key_path
+    python_interpreter  = "/usr/bin/python3"
+  })
+  filename = "${path.module}/../Ansible/inventory.ini"
+}
