@@ -292,3 +292,275 @@ ec2-user@52.31.139.173: Permission denied (publickey,gssapi-keyex,gssapi-with-mi
 2026-01-23 11:57:23,472 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
 2026-01-23 11:57:23,476 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY RECAP *************************************************************************************************************************************************************
 2026-01-23 11:57:23,477 p=1170485 u=joel-livingstone-kofi-ackah n=ansible INFO| webapp                     : ok=32   changed=17   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-01-28 11:42:46,289 p=349433 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY [Deploy Node.js Todo App with MongoDB and Nginx] *****************************************************************************************
+2026-01-28 11:42:46,302 p=349433 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Gathering Facts] ************************************************************************************************************************
+2026-01-28 11:42:47,574 p=349433 u=joel-livingstone-kofi-ackah n=ansible ERROR| [ERROR]: Task failed: Failed to connect to the host via ssh: Warning: Permanently added '34.243.244.28' (ED25519) to the list of known hosts.
+no such identity: ../Compute/AnsibleKeyPair.pem: No such file or directory
+ec2-user@34.243.244.28: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+
+
+2026-01-28 11:42:47,575 p=349433 u=joel-livingstone-kofi-ackah n=ansible INFO| fatal: [webapp]: UNREACHABLE! => {"changed": false, "msg": "Task failed: Failed to connect to the host via ssh: Warning: Permanently added '34.243.244.28' (ED25519) to the list of known hosts.\r\nno such identity: ../Compute/AnsibleKeyPair.pem: No such file or directory\r\nec2-user@34.243.244.28: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).", "unreachable": true}
+2026-01-28 11:42:47,575 p=349433 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY RECAP ************************************************************************************************************************************
+2026-01-28 11:42:47,576 p=349433 u=joel-livingstone-kofi-ackah n=ansible INFO| webapp                     : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2026-01-28 11:43:07,854 p=349924 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY [Test Connection to Web Server] **********************************************************************************************************
+2026-01-28 11:43:07,861 p=349924 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Gathering Facts] ************************************************************************************************************************
+2026-01-28 11:43:09,090 p=349924 u=joel-livingstone-kofi-ackah n=ansible ERROR| [ERROR]: Task failed: Failed to connect to the host via ssh: no such identity: ../Compute/AnsibleKeyPair.pem: No such file or directory
+ec2-user@34.243.244.28: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+
+
+2026-01-28 11:43:09,090 p=349924 u=joel-livingstone-kofi-ackah n=ansible INFO| fatal: [webapp]: UNREACHABLE! => {"changed": false, "msg": "Task failed: Failed to connect to the host via ssh: no such identity: ../Compute/AnsibleKeyPair.pem: No such file or directory\r\nec2-user@34.243.244.28: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).", "unreachable": true}
+2026-01-28 11:43:09,091 p=349924 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY RECAP ************************************************************************************************************************************
+2026-01-28 11:43:09,091 p=349924 u=joel-livingstone-kofi-ackah n=ansible INFO| webapp                     : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2026-01-28 11:44:12,239 p=350411 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY [Test Connection to Web Server] **********************************************************************************************************
+2026-01-28 11:44:12,247 p=350411 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Gathering Facts] ************************************************************************************************************************
+2026-01-28 11:44:13,479 p=350411 u=joel-livingstone-kofi-ackah n=ansible ERROR| [ERROR]: Task failed: Failed to connect to the host via ssh: no such identity: Terraform/Compute/AnsibleKeyPair.pem: No such file or directory
+ec2-user@34.243.244.28: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+
+
+2026-01-28 11:44:13,479 p=350411 u=joel-livingstone-kofi-ackah n=ansible INFO| fatal: [webapp]: UNREACHABLE! => {"changed": false, "msg": "Task failed: Failed to connect to the host via ssh: no such identity: Terraform/Compute/AnsibleKeyPair.pem: No such file or directory\r\nec2-user@34.243.244.28: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).", "unreachable": true}
+2026-01-28 11:44:13,480 p=350411 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY RECAP ************************************************************************************************************************************
+2026-01-28 11:44:13,480 p=350411 u=joel-livingstone-kofi-ackah n=ansible INFO| webapp                     : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2026-01-28 11:44:18,952 p=350495 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY [Test Connection to Web Server] **********************************************************************************************************
+2026-01-28 11:44:18,962 p=350495 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Gathering Facts] ************************************************************************************************************************
+2026-01-28 11:44:20,071 p=350495 u=joel-livingstone-kofi-ackah n=ansible ERROR| [ERROR]: Task failed: Failed to connect to the host via ssh: no such identity: Terraform/Compute/AnsibleKeyPair.pem: No such file or directory
+ec2-user@34.243.244.28: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+
+
+2026-01-28 11:44:20,071 p=350495 u=joel-livingstone-kofi-ackah n=ansible INFO| fatal: [webapp]: UNREACHABLE! => {"changed": false, "msg": "Task failed: Failed to connect to the host via ssh: no such identity: Terraform/Compute/AnsibleKeyPair.pem: No such file or directory\r\nec2-user@34.243.244.28: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).", "unreachable": true}
+2026-01-28 11:44:20,072 p=350495 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY RECAP ************************************************************************************************************************************
+2026-01-28 11:44:20,072 p=350495 u=joel-livingstone-kofi-ackah n=ansible INFO| webapp                     : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2026-01-28 11:46:24,369 p=351619 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY [Test Connection to Web Server] **********************************************************************************************************
+2026-01-28 11:46:24,376 p=351619 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Gathering Facts] ************************************************************************************************************************
+2026-01-28 11:46:25,648 p=351619 u=joel-livingstone-kofi-ackah n=ansible ERROR| [ERROR]: Task failed: Failed to connect to the host via ssh: no such identity: Terraform/Compute/AnsibleKeyPair.pem: No such file or directory
+ec2-user@34.243.244.28: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+
+
+2026-01-28 11:46:25,649 p=351619 u=joel-livingstone-kofi-ackah n=ansible INFO| fatal: [webapp]: UNREACHABLE! => {"changed": false, "msg": "Task failed: Failed to connect to the host via ssh: no such identity: Terraform/Compute/AnsibleKeyPair.pem: No such file or directory\r\nec2-user@34.243.244.28: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).", "unreachable": true}
+2026-01-28 11:46:25,649 p=351619 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY RECAP ************************************************************************************************************************************
+2026-01-28 11:46:25,649 p=351619 u=joel-livingstone-kofi-ackah n=ansible INFO| webapp                     : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2026-01-28 11:47:04,385 p=352011 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY [Test Connection to Web Server] **********************************************************************************************************
+2026-01-28 11:47:04,392 p=352011 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Gathering Facts] ************************************************************************************************************************
+2026-01-28 11:47:05,505 p=352011 u=joel-livingstone-kofi-ackah n=ansible ERROR| [ERROR]: Task failed: Failed to connect to the host via ssh: no such identity: Terraform/Compute/AnsibleKeyPair.pem: No such file or directory
+ec2-user@34.243.244.28: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+
+
+2026-01-28 11:47:05,505 p=352011 u=joel-livingstone-kofi-ackah n=ansible INFO| fatal: [webapp]: UNREACHABLE! => {"changed": false, "msg": "Task failed: Failed to connect to the host via ssh: no such identity: Terraform/Compute/AnsibleKeyPair.pem: No such file or directory\r\nec2-user@34.243.244.28: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).", "unreachable": true}
+2026-01-28 11:47:05,506 p=352011 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY RECAP ************************************************************************************************************************************
+2026-01-28 11:47:05,506 p=352011 u=joel-livingstone-kofi-ackah n=ansible INFO| webapp                     : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2026-01-28 11:48:15,318 p=352598 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY [Test Connection to Web Server] **********************************************************************************************************
+2026-01-28 11:48:15,325 p=352598 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Gathering Facts] ************************************************************************************************************************
+2026-01-28 11:48:16,517 p=352598 u=joel-livingstone-kofi-ackah n=ansible ERROR| [ERROR]: Task failed: Failed to connect to the host via ssh: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Permissions 0775 for '../Terraform/Compute/AnsibleKeyPair.pem' are too open.
+It is required that your private key files are NOT accessible by others.
+This private key will be ignored.
+Load key "../Terraform/Compute/AnsibleKeyPair.pem": bad permissions
+ec2-user@34.243.244.28: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+
+
+2026-01-28 11:48:16,518 p=352598 u=joel-livingstone-kofi-ackah n=ansible INFO| fatal: [webapp]: UNREACHABLE! => {"changed": false, "msg": "Task failed: Failed to connect to the host via ssh: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\n@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @\r\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\nPermissions 0775 for '../Terraform/Compute/AnsibleKeyPair.pem' are too open.\r\nIt is required that your private key files are NOT accessible by others.\r\nThis private key will be ignored.\r\nLoad key \"../Terraform/Compute/AnsibleKeyPair.pem\": bad permissions\r\nec2-user@34.243.244.28: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).", "unreachable": true}
+2026-01-28 11:48:16,518 p=352598 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY RECAP ************************************************************************************************************************************
+2026-01-28 11:48:16,518 p=352598 u=joel-livingstone-kofi-ackah n=ansible INFO| webapp                     : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2026-01-28 11:49:49,574 p=353292 u=joel-livingstone-kofi-ackah n=ansible ERROR| [ERROR]: Task failed: Failed to connect to the host via ssh: no such identity: Terraform/Compute/AnsibleKeyPair.pem: No such file or directory
+ec2-user@34.243.244.28: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+Origin: <adhoc 'ping' task>
+
+{'action': 'ping', 'args': {}, 'timeout': 0, 'async_val': 0, 'poll': 15}
+
+
+2026-01-28 11:49:49,575 p=353292 u=joel-livingstone-kofi-ackah n=ansible INFO| webapp | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Task failed: Failed to connect to the host via ssh: no such identity: Terraform/Compute/AnsibleKeyPair.pem: No such file or directory\r\nec2-user@34.243.244.28: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).",
+    "unreachable": true
+}
+2026-01-28 11:51:44,262 p=354294 u=joel-livingstone-kofi-ackah n=ansible ERROR| [ERROR]: Task failed: Failed to connect to the host via ssh: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Permissions 0775 for '../Terraform/Compute/AnsibleKeyPair.pem' are too open.
+It is required that your private key files are NOT accessible by others.
+This private key will be ignored.
+Load key "../Terraform/Compute/AnsibleKeyPair.pem": bad permissions
+ec2-user@34.243.244.28: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+Origin: <adhoc 'ping' task>
+
+{'action': 'ping', 'args': {}, 'timeout': 0, 'async_val': 0, 'poll': 15}
+
+
+2026-01-28 11:51:44,262 p=354294 u=joel-livingstone-kofi-ackah n=ansible INFO| webapp | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Task failed: Failed to connect to the host via ssh: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\n@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @\r\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\nPermissions 0775 for '../Terraform/Compute/AnsibleKeyPair.pem' are too open.\r\nIt is required that your private key files are NOT accessible by others.\r\nThis private key will be ignored.\r\nLoad key \"../Terraform/Compute/AnsibleKeyPair.pem\": bad permissions\r\nec2-user@34.243.244.28: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).",
+    "unreachable": true
+}
+2026-01-28 11:52:51,470 p=354939 u=joel-livingstone-kofi-ackah n=ansible ERROR| [ERROR]: Task failed: Failed to connect to the host via ssh: Load key "../Terraform/Compute/AnsibleKeyPair.pem": Permission denied
+ec2-user@34.243.244.28: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+Origin: <adhoc 'ping' task>
+
+{'action': 'ping', 'args': {}, 'timeout': 0, 'async_val': 0, 'poll': 15}
+
+
+2026-01-28 11:52:51,470 p=354939 u=joel-livingstone-kofi-ackah n=ansible INFO| webapp | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Task failed: Failed to connect to the host via ssh: Load key \"../Terraform/Compute/AnsibleKeyPair.pem\": Permission denied\r\nec2-user@34.243.244.28: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).",
+    "unreachable": true
+}
+2026-01-28 11:53:04,749 p=355109 u=joel-livingstone-kofi-ackah n=ansible ERROR| [ERROR]: Task failed: Failed to connect to the host via ssh: Load key "../Terraform/Compute/AnsibleKeyPair.pem": Permission denied
+ec2-user@34.243.244.28: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+Origin: <adhoc 'ping' task>
+
+{'action': 'ping', 'args': {}, 'timeout': 0, 'async_val': 0, 'poll': 15}
+
+
+2026-01-28 11:53:04,749 p=355109 u=joel-livingstone-kofi-ackah n=ansible INFO| webapp | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Task failed: Failed to connect to the host via ssh: Load key \"../Terraform/Compute/AnsibleKeyPair.pem\": Permission denied\r\nec2-user@34.243.244.28: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).",
+    "unreachable": true
+}
+2026-01-28 11:53:24,336 p=355298 u=joel-livingstone-kofi-ackah n=ansible ERROR| [ERROR]: Task failed: Failed to connect to the host via ssh: no such identity: Terraform/Compute/AnsibleKeyPair.pem: No such file or directory
+ec2-user@34.243.244.28: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+Origin: <adhoc 'ping' task>
+
+{'action': 'ping', 'args': {}, 'timeout': 0, 'async_val': 0, 'poll': 15}
+
+
+2026-01-28 11:53:24,337 p=355298 u=joel-livingstone-kofi-ackah n=ansible INFO| webapp | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Task failed: Failed to connect to the host via ssh: no such identity: Terraform/Compute/AnsibleKeyPair.pem: No such file or directory\r\nec2-user@34.243.244.28: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).",
+    "unreachable": true
+}
+2026-01-28 11:54:06,752 p=355660 u=joel-livingstone-kofi-ackah n=ansible ERROR| [ERROR]: Task failed: Failed to connect to the host via ssh: Load key "../Terraform/Compute/AnsibleKeyPair.pem": Permission denied
+ec2-user@34.243.244.28: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+Origin: <adhoc 'ping' task>
+
+{'action': 'ping', 'args': {}, 'timeout': 0, 'async_val': 0, 'poll': 15}
+
+
+2026-01-28 11:54:06,752 p=355660 u=joel-livingstone-kofi-ackah n=ansible INFO| webapp | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Task failed: Failed to connect to the host via ssh: Load key \"../Terraform/Compute/AnsibleKeyPair.pem\": Permission denied\r\nec2-user@34.243.244.28: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).",
+    "unreachable": true
+}
+2026-01-28 11:55:10,152 p=356178 u=joel-livingstone-kofi-ackah n=ansible INFO| webapp | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+2026-01-28 11:55:20,492 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY [Deploy Node.js Todo App with MongoDB and Nginx] *****************************************************************************************
+2026-01-28 11:55:20,500 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Gathering Facts] ************************************************************************************************************************
+2026-01-28 11:55:25,192 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp]
+2026-01-28 11:55:25,202 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Display deployment information] *********************************************************************************************************
+2026-01-28 11:55:25,221 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp] => {
+    "msg": "Deploying Todo App to 34.243.244.28\nRepository: https://github.com/KofiAckah/Deploy_n_Configure-Web_App.git\nApp Directory: /var/www/todoapp\n"
+}
+2026-01-28 11:55:25,225 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Update system packages] *****************************************************************************************************************
+2026-01-28 11:55:41,122 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp]
+2026-01-28 11:55:41,134 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Add MongoDB repository] *****************************************************************************************************************
+2026-01-28 11:55:49,072 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-28 11:55:49,077 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Install MongoDB] ************************************************************************************************************************
+2026-01-28 11:56:09,763 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-28 11:56:09,773 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Start and enable MongoDB service] *******************************************************************************************************
+2026-01-28 11:56:14,464 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-28 11:56:14,468 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Wait for MongoDB to be ready] ***********************************************************************************************************
+2026-01-28 11:56:23,048 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp]
+2026-01-28 11:56:23,059 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Install Node.js repository (NodeSource)] ************************************************************************************************
+2026-01-28 11:56:28,042 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-28 11:56:28,046 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Install Node.js and npm] ****************************************************************************************************************
+2026-01-28 11:56:36,510 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-28 11:56:36,514 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Verify Node.js installation] ************************************************************************************************************
+2026-01-28 11:56:40,325 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp]
+2026-01-28 11:56:40,331 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Display Node.js version] ****************************************************************************************************************
+2026-01-28 11:56:40,348 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp] => {
+    "msg": "Node.js version: v20.20.0"
+}
+2026-01-28 11:56:40,352 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Install Git] ****************************************************************************************************************************
+2026-01-28 11:56:46,423 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-28 11:56:46,428 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Create application directory] ***********************************************************************************************************
+2026-01-28 11:56:50,161 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-28 11:56:50,165 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Clone application from GitHub] **********************************************************************************************************
+2026-01-28 11:56:54,414 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-28 11:56:54,418 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Navigate to webapp folder] **************************************************************************************************************
+2026-01-28 11:56:59,071 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp]
+2026-01-28 11:56:59,075 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Display webapp contents] ****************************************************************************************************************
+2026-01-28 11:56:59,092 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp] => {
+    "msg": [
+        "total 76",
+        "drwxrwxr-x. 6 ec2-user ec2-user   178 Jan 28 11:56 .",
+        "drwxr-xr-x. 8 ec2-user ec2-user   129 Jan 28 11:56 ..",
+        "-rw-rw-r--. 1 ec2-user ec2-user   140 Jan 28 11:56 .env.example",
+        "-rw-rw-r--. 1 ec2-user ec2-user    35 Jan 28 11:56 .gitignore",
+        "-rw-rw-r--. 1 ec2-user ec2-user  3624 Jan 28 11:56 README.md",
+        "drwxrwxr-x. 2 ec2-user ec2-user    21 Jan 28 11:56 models",
+        "-rw-rw-r--. 1 ec2-user ec2-user 54768 Jan 28 11:56 package-lock.json",
+        "-rw-rw-r--. 1 ec2-user ec2-user   548 Jan 28 11:56 package.json",
+        "drwxrwxr-x. 4 ec2-user ec2-user    27 Jan 28 11:56 public",
+        "drwxrwxr-x. 2 ec2-user ec2-user    22 Jan 28 11:56 routes",
+        "-rw-rw-r--. 1 ec2-user ec2-user  1437 Jan 28 11:56 server.js",
+        "drwxrwxr-x. 2 ec2-user ec2-user    23 Jan 28 11:56 views"
+    ]
+}
+2026-01-28 11:56:59,096 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Install npm dependencies] ***************************************************************************************************************
+2026-01-28 11:57:05,662 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-28 11:57:05,666 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Create .env file for production] ********************************************************************************************************
+2026-01-28 11:57:13,619 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-28 11:57:13,623 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Create systemd service file for Node.js app] ********************************************************************************************
+2026-01-28 11:57:21,116 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-28 11:57:21,121 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Reload systemd daemon] ******************************************************************************************************************
+2026-01-28 11:57:25,116 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp]
+2026-01-28 11:57:25,120 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Start and enable Todo App service] ******************************************************************************************************
+2026-01-28 11:57:29,213 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-28 11:57:29,216 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Wait for Node.js app to start] **********************************************************************************************************
+2026-01-28 11:57:35,550 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp]
+2026-01-28 11:57:35,554 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Install Nginx] **************************************************************************************************************************
+2026-01-28 11:57:41,220 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-28 11:57:41,224 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Configure Nginx as reverse proxy] *******************************************************************************************************
+2026-01-28 11:57:48,860 p=356348 u=joel-livingstone-kofi-ackah n=ansible WARNING| [WARNING]: Deprecation warnings can be disabled by setting `deprecation_warnings=False` in ansible.cfg.
+
+2026-01-28 11:57:48,860 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| [DEPRECATION WARNING]: INJECT_FACTS_AS_VARS default to `True` is deprecated, top-level facts will not be auto injected after the change. This feature will be removed from ansible-core version 2.24.
+Origin: /home/joel-livingstone-kofi-ackah/Desktop/Labs/Deploy&Configure_ Web_App/Ansible/site.yml:184:18
+
+182       copy:
+183         dest: /etc/nginx/conf.d/{{ app_name }}.conf
+184         content: |
+                     ^ column 18
+
+Use `ansible_facts["fact_name"]` (no `ansible_` prefix) instead.
+
+
+2026-01-28 11:57:48,860 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-28 11:57:48,863 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Remove default Nginx configuration] *****************************************************************************************************
+2026-01-28 11:57:52,161 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-28 11:57:52,165 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Test Nginx configuration] ***************************************************************************************************************
+2026-01-28 11:57:55,475 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp]
+2026-01-28 11:57:55,479 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Display Nginx test results] *************************************************************************************************************
+2026-01-28 11:57:55,496 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp] => {
+    "msg": [
+        "nginx: the configuration file /etc/nginx/nginx.conf syntax is ok",
+        "nginx: configuration file /etc/nginx/nginx.conf test is successful"
+    ]
+}
+2026-01-28 11:57:55,500 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Start and enable Nginx] *****************************************************************************************************************
+2026-01-28 11:57:59,471 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-28 11:57:59,482 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Check if Todo App is responding] ********************************************************************************************************
+2026-01-28 11:58:03,103 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp]
+2026-01-28 11:58:03,107 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Display application health status] ******************************************************************************************************
+2026-01-28 11:58:03,134 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp] => {
+    "msg": "Application Status: OK"
+}
+2026-01-28 11:58:03,138 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| TASK [Display deployment summary] *************************************************************************************************************
+2026-01-28 11:58:03,158 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| [DEPRECATION WARNING]: INJECT_FACTS_AS_VARS default to `True` is deprecated, top-level facts will not be auto injected after the change. This feature will be removed from ansible-core version 2.24.
+Origin: /home/joel-livingstone-kofi-ackah/Desktop/Labs/Deploy&Configure_ Web_App/Ansible/site.yml:244:14
+
+242     - name: Display deployment summary
+243       debug:
+244         msg: |
+                 ^ column 14
+
+Use `ansible_facts["fact_name"]` (no `ansible_` prefix) instead.
+
+
+2026-01-28 11:58:03,158 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| ok: [webapp] => {
+    "msg": "✅ DEPLOYMENT SUCCESSFUL!\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n📦 Application: Todo App\n🌐 Access URL: http://10.0.1.59\n🔗 Health Check: http://10.0.1.59/health\n📁 App Directory: /var/www/todoapp/webapp\n🗄️  Database: MongoDB running on port 27017\n🚀 Node.js App: Running on port 3000\n🔄 Nginx: Reverse proxy configured\n📊 Service: systemctl status todoapp\n📋 Logs: journalctl -u todoapp -f\n"
+}
+2026-01-28 11:58:03,165 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| RUNNING HANDLER [Restart Nginx] ***************************************************************************************************************
+2026-01-28 11:58:07,005 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| changed: [webapp]
+2026-01-28 11:58:07,006 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| PLAY RECAP ************************************************************************************************************************************
+2026-01-28 11:58:07,006 p=356348 u=joel-livingstone-kofi-ackah n=ansible INFO| webapp                     : ok=32   changed=17   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

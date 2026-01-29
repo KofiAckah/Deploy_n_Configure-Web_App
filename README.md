@@ -14,6 +14,13 @@ This project demonstrates a complete DevOps workflow for deploying a Node.js Tod
 
 ## 🏗️ Architecture
 
+### AWS Infrastructure Diagram
+
+![AWS Architecture Diagram](Assets/Ansible%20Lab.drawio.png)
+*Complete AWS infrastructure showing Terraform-provisioned resources: VPC, Subnet, Internet Gateway, Route Table, Security Group, and EC2 Instance with automated Ansible configuration*
+
+### Application Stack Architecture
+
 ```
 ┌─────────────────────────────────────────────┐
 │            AWS Cloud (EC2)                  │
@@ -36,6 +43,13 @@ This project demonstrates a complete DevOps workflow for deploying a Node.js Tod
 │  └───────────────────────────────────────┘  │
 └─────────────────────────────────────────────┘
 ```
+
+**Architecture Highlights:**
+- **Network Layer**: Custom VPC (10.0.0.0/16) with public subnet (10.0.1.0/24)
+- **Gateway**: Internet Gateway with route table for external connectivity
+- **Security**: Security group controlling SSH (22), HTTP (80), HTTPS (443) access
+- **Compute**: EC2 instance with auto-generated TLS SSH keys
+- **Automation**: Terraform provisions infrastructure, Ansible configures application
 
 ## 📁 Project Structure
 
@@ -60,7 +74,8 @@ Deploy&Configure_Web_App/
 │   ├── routes/            # API routes
 │   ├── views/             # EJS templates
 │   └── public/            # Static assets
-└── Assets/                # Project screenshots
+└── Assets/                # Project screenshots & diagrams
+    └── Ansible Lab.drawio.png    # Architecture diagram
 ```
 
 ## 🚀 Deployment Workflow

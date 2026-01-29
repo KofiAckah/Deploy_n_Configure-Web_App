@@ -4,3 +4,4 @@ Assignment.pdf
 *.tfstate
 *.tfstate.backup
 .terraform/
+/diagram
