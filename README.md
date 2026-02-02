@@ -2,7 +2,7 @@
 
 > **DevOps Project**: Automated Infrastructure Provisioning and Application Deployment using Infrastructure as Code (IaC) and Configuration Management
 
-## 📋 Project Overview
+## Project Overview
 
 This project demonstrates a complete DevOps workflow for deploying a Node.js Todo application on AWS using:
 - **Terraform** for infrastructure provisioning (IaC)
@@ -12,7 +12,7 @@ This project demonstrates a complete DevOps workflow for deploying a Node.js Tod
 - **Nginx** as reverse proxy
 - **Systemd** for process management
 
-## 🏗️ Architecture
+## Architecture
 
 ### AWS Infrastructure Diagram
 
@@ -51,7 +51,7 @@ This project demonstrates a complete DevOps workflow for deploying a Node.js Tod
 - **Compute**: EC2 instance with auto-generated TLS SSH keys
 - **Automation**: Terraform provisions infrastructure, Ansible configures application
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 Deploy&Configure_Web_App/
@@ -78,7 +78,7 @@ Deploy&Configure_Web_App/
     └── Ansible Lab.drawio.png    # Architecture diagram
 ```
 
-## 🚀 Deployment Workflow
+## Deployment Workflow
 
 ### Phase 1: Infrastructure Provisioning (Terraform)
 
@@ -99,12 +99,12 @@ Deploy&Configure_Web_App/
    ```
 
 **What Terraform Creates:**
-- ✅ VPC with public subnet
-- ✅ Internet Gateway and Route Table
-- ✅ Security Group (ports: 22, 80, 3000, 27017)
-- ✅ EC2 Instance (Amazon Linux 2023)
-- ✅ SSH Key Pair for access
-- ✅ Auto-generated Ansible inventory file
+- VPC with public subnet
+- Internet Gateway and Route Table
+- Security Group (ports: 22, 80, 3000, 27017)
+- EC2 Instance (Amazon Linux 2023)
+- SSH Key Pair for access
+- Auto-generated Ansible inventory file
 
 ### Phase 2: Application Deployment (Ansible)
 
@@ -125,17 +125,17 @@ Deploy&Configure_Web_App/
    ```
 
 **What Ansible Configures:**
-- ✅ System package updates
-- ✅ MongoDB 7.0 installation and configuration
-- ✅ Node.js 20 installation
-- ✅ Git installation and repository cloning
-- ✅ Application dependencies installation
-- ✅ Environment configuration (.env file)
-- ✅ Systemd service creation
-- ✅ Nginx reverse proxy setup
-- ✅ Service startup and health checks
+- System package updates
+- MongoDB 7.0 installation and configuration
+- Node.js 20 installation
+- Git installation and repository cloning
+- Application dependencies installation
+- Environment configuration (.env file)
+- Systemd service creation
+- Nginx reverse proxy setup
+- Service startup and health checks
 
-## 🖼️ Application Screenshots
+## Application Screenshots
 
 ### Web Application Interface
 ![Todo App Interface](Assets/WebApp1.png)
@@ -154,7 +154,7 @@ Deploy&Configure_Web_App/
 ![Application Running](Assets/Screenshot%20from%202026-01-23%2011-57-35.png)
 *Live application accessible via Nginx reverse proxy*
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 ### Infrastructure & DevOps
 - **Terraform** v1.x - Infrastructure as Code
@@ -175,27 +175,27 @@ Deploy&Configure_Web_App/
 - **YUM** - Package Manager
 - **Git** - Version Control
 
-## 📊 Features
+## Features
 
 ### Infrastructure Features
-- ✅ Modular Terraform structure (Network, Security, Compute)
-- ✅ Automated inventory generation
-- ✅ Idempotent configuration management
-- ✅ Security group with least privilege access
-- ✅ Automated SSH key generation
+- Modular Terraform structure (Network, Security, Compute)
+- Automated inventory generation
+- Idempotent configuration management
+- Security group with least privilege access
+- Automated SSH key generation
 
 ### Application Features
-- ✅ Full CRUD operations for todos
-- ✅ Task prioritization (Low/Medium/High)
-- ✅ Completion status tracking
-- ✅ Responsive web interface
-- ✅ REST API endpoints
-- ✅ MongoDB persistence
-- ✅ Production-ready systemd service
-- ✅ Nginx reverse proxy with proper headers
-- ✅ Health check endpoint
+- Full CRUD operations for todos
+- Task prioritization (Low/Medium/High)
+- Completion status tracking
+- Responsive web interface
+- REST API endpoints
+- MongoDB persistence
+- Production-ready systemd service
+- Nginx reverse proxy with proper headers
+- Health check endpoint
 
-## 🔐 Security Considerations
+## Security Considerations
 
 - SSH access via key-based authentication only
 - Security group rules restrict access to specific ports
@@ -205,7 +205,7 @@ Deploy&Configure_Web_App/
 - Nginx handles external traffic (port 80)
 - Node.js app isolated on port 3000
 
-## 📝 Configuration Files
+## Configuration Files
 
 ### Key Terraform Files
 - **main.tf** - Module orchestration and inventory generation
@@ -219,7 +219,7 @@ Deploy&Configure_Web_App/
 - **inventory.ini** - Auto-generated from Terraform outputs
 - **ansible.cfg** - Ansible behavior configuration
 
-## 🔄 Auto-Generated Inventory
+## Auto-Generated Inventory
 
 The project includes automated inventory file generation:
 
@@ -242,7 +242,7 @@ resource "local_file" "ansible_inventory" {
 - Single source of truth (Terraform outputs)
 - Works seamlessly with `terraform destroy` and recreate
 
-## 🧪 Testing & Verification
+## Testing & Verification
 
 ### Infrastructure Testing
 ```bash
@@ -280,7 +280,7 @@ curl http://<instance-ip>/health
 curl http://<instance-ip>
 ```
 
-## 🗑️ Cleanup
+## Cleanup
 
 To destroy all resources:
 
@@ -296,20 +296,20 @@ This will remove:
 - VPC and networking components
 - All associated AWS resources
 
-## 📚 Learning Outcomes
+## Learning Outcomes
 
 This project demonstrates proficiency in:
-- ✅ Infrastructure as Code (IaC) with Terraform
-- ✅ Configuration Management with Ansible
-- ✅ AWS cloud services (EC2, VPC, Security Groups)
-- ✅ Linux system administration
-- ✅ Web application deployment
-- ✅ Reverse proxy configuration
-- ✅ Service management with systemd
-- ✅ DevOps best practices
-- ✅ Automation and scripting
+- Infrastructure as Code (IaC) with Terraform
+- Configuration Management with Ansible
+- AWS cloud services (EC2, VPC, Security Groups)
+- Linux system administration
+- Web application deployment
+- Reverse proxy configuration
+- Service management with systemd
+- DevOps best practices
+- Automation and scripting
 
-## 🎯 Project Requirements Met
+## Project Requirements Met
 
 - [x] **Part 1**: Terraform infrastructure provisioning
   - VPC, Subnet, Internet Gateway, Route Table
@@ -332,7 +332,7 @@ This project demonstrates proficiency in:
   - Running application screenshots
   - Code documentation and comments
 
-## 📄 License
+## License
 
 This project is for educational purposes as part of a DevOps training assignment.
 
