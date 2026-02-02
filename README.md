@@ -311,14 +311,14 @@ This project demonstrates proficiency in:
 
 ## Project Requirements Met
 
-- [x] **Part 1**: Terraform infrastructure provisioning
+- **Part 1**: Terraform infrastructure provisioning
   - VPC, Subnet, Internet Gateway, Route Table
   - Security Group with proper rules
   - EC2 instance creation
   - SSH key pair generation
   - Modular code structure
   
-- [x] **Part 2**: Ansible configuration management
+- **Part 2**: Ansible configuration management
   - MongoDB installation and configuration
   - Node.js and npm installation
   - Application deployment from GitHub
@@ -326,7 +326,7 @@ This project demonstrates proficiency in:
   - Systemd service creation
   - Automated inventory generation
 
-- [x] **Part 3**: Documentation and evidence
+- **Part 3**: Documentation and evidence
   - Complete README with architecture
   - Screenshots of deployment process
   - Running application screenshots
